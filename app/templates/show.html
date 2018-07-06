@@ -1,0 +1,22 @@
+﻿{% extends "base.html" %}
+{% block login %}
+<h1>查询信息</h1>
+{% endblock %}
+{% block body %}
+<table aligin = 'center' border="1">
+<tr>
+<th>学号</th>
+<th>姓名</th>
+<th>学院</th>
+<th>密码</th>
+</tr>
+{% for inf in info %}
+<tr>
+    <td>{{inf[0]}}</td>
+    <td>{{inf[1]}}</td>
+    <td>{{inf[2]}}</td>
+    <td>{{inf[3]}}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>山灰先生收银管理系统</title>
+<style type="text/css">
+<!--
+.STYLE1 {
+	font-family: "新宋体";
+	color: #FFFFFF;
+}
+.STYLE2 {color: #FFFFFF}
+body {
+	background-color: #CCCCCC;
+}
+.STYLE4 {
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: large;
+	background-color:#333333;
+}
+.STYLE8 {font-family: "新宋体"; font-weight: bold; border:0;font-size: medium; color: #FFFFFF; background-color:#666666;}
+.footer{
+position: fixed;
+left: 0px;
+bottom: 0px;
+width: 100%;
+height: 50px;
+z-index: 9999;
+}
+-->
+</style>
+</head>
+
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="4">
+
+  <tr>
+
+    <td width="16%" bgcolor="#000000"><a href="#"><img src="../static/logo.jpg" name="Logo" width="96" height="88" border="0" style="background-color: #CCCC99"></a></td>
+    <td width="71%" bgcolor="#000000"><h1 align="center" class="STYLE1" >山灰先生收银管理系统</h1></td>
+
+    <td width="13%" align="right" bgcolor="#000000"><a href="/logout" class="STYLE2">注销</a> <a href="/register" class="STYLE2">添加管理员</a>&nbsp;</td>
+  </tr>
+</table>
+
+
+<table bgcolor="#FFFFFF" width="100%"><th width="100%"></th></table>
+
+
+<div>
+
+<div style="width:20%;height:100%;float:left;">
+<table width="99%" height="620" border="1" cellpadding="4" cellspacing="0">
+<tr bgcolor="#333333">
+<td colspan="2" bordercolor="#FFFFFF">
+<div align="center" style=""><a class="STYLE4">点餐</a></div>
+</td>
+</tr>
+<tr bgcolor="#CCCCCC"><td bordercolor="#FFFFFF" bgcolor="#666666">&nbsp; 
+</td>
+<td width="100%" bordercolor="#FFFFFF" bgcolor="#666666">
+<div align="center">
+<button onclick="iframe.location='/orderdish'" class="STYLE8">点菜</button>
+</div>
+</td>
+</tr>
+<tr bgcolor="#CCCCCC"><td bordercolor="#FFFFFF" bgcolor="#666666">&nbsp; 
+</td>
+<td width="100%" bordercolor="#FFFFFF" bgcolor="#666666">
+<div align="center">
+<button onclick="iframe.location='/showorderinfo'" class="STYLE8">查看已点菜</button>
+</div>
+</td>
+</tr>
+<tr bgcolor="#333333">
+<td colspan="2" bordercolor="#FFFFFF">
+<div align="center"><a class="STYLE4">结账</a></div>
+</td>
+</tr>
+<tr bgcolor="#CCCCCC"><td bordercolor="#FFFFFF" bgcolor="#666666">&nbsp; 
+</td>
+<td width="100%" bordercolor="#FFFFFF" bgcolor="#666666">
+<div align="center"><button onclick="iframe.location='/checkout'" class="STYLE8">结算</button></div>
+</td>
+</tr>
+<tr bgcolor="#CCCCCC">
+<td bordercolor="#FFFFFF" bgcolor="#666666">&nbsp;
+</td>
+<td width="100%" bordercolor="#FFFFFF" bgcolor="#666666">
+<div align="center"><button onclick="iframe.location='/showorders'" class="STYLE8">查看账单信息</button></div>
+</td>
+</tr>
+<tr bgcolor="#333333">
+<td colspan="2" bordercolor="#FFFFFF">
+<div align="center"><a class="STYLE4">变动菜品桌位</a></div>
+</td>
+</tr>
+<tr bgcolor="#CCCCCC">
+<td bordercolor="#FFFFFF" bgcolor="#666666">&nbsp; 
+</td>
+<td width="100%" bordercolor="#FFFFFF" bgcolor="#666666">
+<div align="center"><button onclick="iframe.location='/adddish'" class="STYLE8">变动菜品</button></div>
+</td>
+</tr>
+<tr bgcolor="#CCCCCC">
+<td bordercolor="#FFFFFF" bgcolor="#666666">&nbsp;
+</td>
+<td width="100%" bordercolor="#FFFFFF" bgcolor="#666666">
+<div align="center"><button onclick="iframe.location='/adddesk'" class="STYLE8">变动桌位</button></div>
+</td>
+</tr>
+</table>
+</div>
+
+
+<div style="width:80%;height:100%;float:right;background-color:#CCCCCC;">
+<br/>
+<iframe src=iframe.html frameborder="0" name="iframe" width="1075" height="580" align="middle" scrolling="yes">
+</iframe>
+</div>
+
+<div class="footer">
+<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="2" style="background-color:#000000;">
+
+ <tbody> <tr> 
+
+    <td align="center"><span class="STYLE2">©2018 CREATED BY DZF &#149</span></td>
+  </tr></tbody>
+
+</table>
+</div>
+
+</body>
+</html>

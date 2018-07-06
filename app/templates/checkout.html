@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>结账</title>
+<style type="text/css">
+<!--
+.STYLE1 {
+	font-size: 14px;
+	font-weight: bold;
+}
+-->
+</style>
+</head>
+<style type="text/css">
+html { overflow-x:hidden; }
+table.hovertable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+}
+table.hovertable th {
+	background-color:#c3dde0;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+table.hovertable tr {
+	background-color:#d4e3e5;
+}
+table.hovertable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+</style>
+
+<body>
+
+<div align="center" style="width:100%">
+<table class="hovertable" width="100%">
+
+<tr>
+<td>
+<form method="post" action="/checkout">
+<div>
+
+<div style="float:left; width:60%;">
+<div align="center">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="STYLE1">桌号</span>
+  <input value='{{desk_id}}' type="text" name="desk_id" id="desk_id" size="30" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+</div>
+
+<div style="float:left; width:40%;">
+<div align="left">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" / value="查询">&nbsp;&nbsp;{{error}}
+<br/>
+</div>
+</div>
+
+</div>
+</form>
+</td>
+</tr>
+
+</table>
+</div>
+
+<div align="center" style=" width:100%">
+<table class="hovertable" width="100%">
+<tr>
+
+<th>
+<h3 align="center">
+订单号
+</h3>
+</th>
+
+<th>
+<h3 align="center">
+菜品编码
+</h3>
+</th>
+
+<th>
+<h3 align="center">
+菜名
+</h3>
+</th>
+
+<th>
+<h3 align="center">
+单价
+</h3>
+</th>
+
+<th>
+<h3 align="center">
+数量
+</h3>
+</th>
+
+<th>
+<h3 align="center">
+合计
+</h3>
+</th>
+
+<th>
+<h3 align="center">
+修改
+</h3>
+</th>
+
+</tr>
+
+{% for item in info %}
+<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+<form method="post" action="/checkout">
+<td align="center">
+<input style="background-color:#d4e3e5;" value="{{item[0]}}" id="order_id" name="order_id" type="text" size="20" />
+</td>
+
+<td align="center">
+<input style="background-color:#d4e3e5;" value={{item[1]}} id="dish_id" name="dish_id" type="text" size="20"/>
+</td>
+
+<td align="center">
+<input style="background-color:#d4e3e5;" value={{item[2]}} id="dish_name" name="dish_name" type="text" size="20"/>
+</td>
+
+<td align="center">
+<input style="background-color:#d4e3e5;" value={{item[3]}} id="price" name="price" type="text" size="20"/>
+</td>
+
+<td align="center">
+<input style="background-color:#d4e3e5;" value={{item[4]}} id="quantity" name="quantity" type="text" size="20"/>
+</td>
+
+<td align="center">
+<input style="background-color:#d4e3e5;" value={{item[5]}} id="total_p" name="total_p" type="text" size="20"/>
+</td>
+
+<td align="center">
+<input style="background-color:#d4e3e5;" value="修改" type="submit" />
+</td>
+</form>
+</tr>
+{% endfor %}
+
+
+
+</table>
+</div>
+
+
+<div align="center">
+<table class="hovertable" width="100%">
+<tr>
+<th align="center">
+总金额：{{amount}}
+</th>
+</tr>
+</table>
+</div> 
+
+<div style="bottom:0px; right:center;">
+  <table class="hovertable" width="100%" height="10%" border="0" align="center">
+    <tr>
+      <form method="post" action="/checkout">
+        <td width="30%" align="center"><br/>
+          &nbsp;&nbsp;<strong>折扣:</strong>
+          <input name="discount" type="text" id="discount" size="20"&nbsp;&nbsp; />
+          &nbsp;<br/>
+          <br/>
+        </td>
+        <td width="30%" align="center"><br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;<strong>付款方式:</strong>
+          <select name="paymode" id="paymode">
+		  	<option value="CASH" >现金</option>
+			<option value="ALIPAY">支付宝</option>
+			<option value="WECHAT">微信支付</option>
+			<option value="BANK CARD">银行卡</option>
+		  </select>
+          &nbsp;<br/>
+          <br/>
+		  <br/>
+        </td>
+        <td width="10%" align="center"><div align="left"> <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="submit" id="orderdishbtn"> <strong>结账</strong></button>
+          <br/>
+          <br/>
+		  <br/>
+        </div></td>
+      </form>
+    </tr>
+  </table>
+</div>
+
+
+
+</body>
+</html>

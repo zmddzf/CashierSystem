@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>添加桌位</title>
+</head>
+<style type="text/css">
+html { overflow-x:hidden; }
+table.hovertable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+}
+table.hovertable th {
+	background-color:#c3dde0;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+table.hovertable tr {
+	background-color:#d4e3e5;
+}
+table.hovertable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+.STYLE3 {font-size: medium}
+</style>
+
+<body>
+
+<div align="center" style="width:100%">
+<table class="hovertable" width="100%">
+
+<tr>
+<td>
+<div>
+  <div style = "width:100%;">
+  <h4 align="center" class="STYLE3">{{error}}</h4>
+<br/>
+</div>
+
+</div>
+</td>
+</tr>
+
+</table>
+</div>
+
+<div align="center" style=" width:100%">
+<table class="hovertable" width="100%">
+<tr>
+
+<th>
+<h3 align="center">
+桌位编号</h3></th>
+
+<th>
+<h3 align="center">
+最大可容纳人数</h3></th>
+
+<th>
+<h3 align="center">
+修改</h3></th>
+</tr>
+
+{% for item in desks %}
+<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+<form method="post" action="/adddesk">
+<td align="center"><input style="background-color:#d4e3e5;" value="{{item[0]}}" id="desk_id" name="desk_id" type="text" size="20" /></td>
+
+<td align="center"><input style="background-color:#d4e3e5;" value="{{item[1]}}" id="desk_maxnum" name="desk_maxnum" type="text" size="20" /></td>
+
+
+<td align="center">
+<input style="background-color:#d4e3e5;" value="修改" type="submit" /></td>
+</form>
+</tr>
+{% endfor %}
+</table>
+</div>
+<div style="bottom:0px; right:center;">
+  <table class="hovertable" width="100%" height="10%" border="0" align="center">
+    <tr>
+      <form method="post" action="/adddesk">
+	  	<td align="center"><br/>
+		  &nbsp;&nbsp;<strong>桌位编号:</strong>
+          <input name="desk_id1" type="text" id="desk_id1" size="20"&nbsp;&nbsp; />
+          &nbsp;<br/>
+          <br/>
+        </td>
+        <td align="center"><br/>
+          &nbsp;&nbsp;<strong>最大可容纳人数:</strong>
+          <input name="desk_maxnum1" type="text" id="desk_maxnum1" size="20"&nbsp;&nbsp; />
+          &nbsp;<br/>
+          <br/>
+        </td>
+		<td align="center">
+		 <input style="background-color:#d4e3e5;" value="修改" type="submit" /></td>
+      </form>
+    </tr>
+  </table>
+</div> 
+
+</body>
+</html>

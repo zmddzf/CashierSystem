@@ -1,0 +1,61 @@
+<style type="text/css">
+<!--
+body {
+	background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530558187594&di=8363efaf2bdc927eb0790b8a9fde1d86&imgtype=0&src=http%3A%2F%2Fimg02.tooopen.com%2Fimages%2F20160622%2Ftooopen_sy_166076454549.jpg);
+}
+.STYLE1 {color: #FFFFFF}
+-->
+</style>{% extends 'base.html' %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>注册新的管理员</title>
+
+</head>
+
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+<br/>
+<br/>
+<br/>
+<table align="center" border="1">
+<tr>
+<th width="622">
+<h1 align="center" class="STYLE1">
+注册管理员</h1></th>
+</tr>
+<tr>
+<td>
+<form method="post" action="/register" style="width:100%">
+<div align="center">
+<br/>
+<span class="STYLE1">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：
+<input name="username" type="text" class="STYLE6" id="username">
+<br/>
+<br/>
+<br/>
+密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：
+<input name="password1" type="password" class="STYLE6" id="password1">
+<br/>
+<br/>
+<br/>
+重复密码：</span>
+<input name="password2" type="password" class="STYLE6" id="password2"><br/><br/>
+<button type="submit" id="registerbtn">
+<div align="center">
+注册
+</div>
+</button>
+</form>
+<br/>
+<span class="STYLE1">{{error}}</span></div></td>
+</tr>
+</table>
+
+
+{% endblock %}
+</html>

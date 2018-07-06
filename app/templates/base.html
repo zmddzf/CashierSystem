@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>山灰先生</title>
+<style type="text/css">
+<!--
+.STYLE2 {
+	font-size: 36px;
+	color: #FFFFFF;
+	font-family: "新宋体";
+	font-weight: bold;
+}
+.STYLE4 {
+	font-size: x-small;
+	color: #FFFFFF;
+}
+.STYLE6 {font-size: medium}
+body {
+	background-color: #CCCCCC;
+}
+-->
+</style>
+</head>
+
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="4">
+  <tr bgcolor="#000000">
+    <td width="16%"><div align="left">
+      <p><a href="#"><img src="{{ url_for('static', filename='logo.jpg') }}" name="Logo" width="133" height="79" border="0" style="background-color: #CCCC99" />      </a></p>
+    </div></td>
+	<td width="28%" align="center"><div align="left"><span class="STYLE2">山灰先生</span></div></td>
+    <td width="48%" align="right"><div align="right"><span class="STYLE4"><span class="STYLE6">欢迎来到山灰先生收银管理系统！</span></span></div></td>
+	<td width="8%" align="right"><div align="right"><span class="STYLE4"><span class="STYLE6"><a style="color:#FFFFFF" href="/workshop"> {{back}}</a></span></span></div></td>
+  </tr>
+</table>
+
+<div align="center" style="height:80%;">
+<table width="348" align="center">
+<tr>
+<th>
+<div>
+    <div align="center" >{% block title %}{% endblock %}    </div>
+</div>
+</th>
+</tr>
+<td style="height:auto">
+<div>
+    <div align="center">{% block body %}{% endblock %}
+    </div>
+</div>
+</td>
+</table>
+</body>
+</html>

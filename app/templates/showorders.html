@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>查看订单</title>
+<style type="text/css">
+<!--
+.STYLE1 {
+	font-size: 14px;
+	font-weight: bold;
+}
+-->
+</style>
+</head>
+<style type="text/css">
+html { overflow-x:hidden; }
+table.hovertable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+}
+table.hovertable th {
+	background-color:#c3dde0;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+table.hovertable tr {
+	background-color:#d4e3e5;
+}
+table.hovertable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+</style>
+
+<body>
+
+<div align="center" style=" width:100%">
+<table class="hovertable" width="100%">
+<tr align="left"> 
+<th>
+<a href="/showorders">返回上级</a>
+</th>
+</tr>
+</table>
+</div>
+
+
+<div align="center" style=" width:100%">
+<table class="hovertable" width="100%">
+
+<tr>
+
+<th>
+<h3 align="center">
+订单号</h3></th>
+
+<th>
+<h3 align="center">
+下单日期</h3></th>
+
+<th>
+<h3 align="center">
+结算日期</h3></th>
+
+<th>
+<h3 align="center">
+桌号</h3></th>
+
+<th>
+<h3 align="center">
+折扣</h3></th>
+
+<th>
+<h3 align="center">
+付款方式</h3></th>
+
+<th>
+<h3 align="center">
+总金额</h3></th>
+</tr>
+
+{% for item in orders %}
+<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+<form method="post" action="/showorders">
+<td align="center">
+<input style="background-color:#d4e3e5;" value="{{item[0]}}" id="order_id" name="order_id" type="submit" size="20" /></td>
+
+<td align="center">
+{{item[1]}}
+</td>
+
+<td align="center">
+{{item[2]}}
+</td>
+
+<td align="center">
+{{item[3]}}
+</td>
+
+<td align="center">
+{{item[4]}}
+</td>
+
+<td align="center">
+{{item[5]}}
+</td>
+
+<td align="center">
+{{item[6]}}
+</td>
+</form>
+</tr>
+{% endfor %}
+
+
+{% for item in order_s %}
+<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+<form method="post" action="/showorders">
+<td align="center">
+<input style="background-color:#d4e3e5;" value="{{item[0]}}" id="order_id" name="order_id" type="submit" size="20" /></td>
+
+<td align="center">
+{{item[1]}}
+</td>
+
+<td align="center">
+{{item[2]}}
+</td>
+
+<td align="center">
+{{item[3]}}
+</td>
+
+<td align="center">
+{{item[4]}}
+</td>
+
+<td align="center">
+{{item[5]}}
+</td>
+
+<td align="center">
+{{item[6]}}
+</td>
+</form>
+</tr>
+{% endfor %}
+
+</table>
+</div>
+
+<table class="hovertable" width="100%" border="1">
+<tbody>
+<tr>
+<th align="center">
+<h2 align="center">
+订单编号
+</h2>
+</th>
+<th align="center">
+<h2 align="center">
+菜品编号
+</h2>
+</th>
+<th align="center">
+<h2 align="center">
+数量
+</h2>
+</th>
+</tr>
+{% for item in info %}
+<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+<td align="center">
+{{item[0]}}
+</td>
+<td align="center">
+{{item[1]}}
+</td>
+<td align="center">
+{{item[2]}}
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+
+
+
+
+</body>
+</html>

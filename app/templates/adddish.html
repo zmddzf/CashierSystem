@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>添加新菜</title>
+</head>
+<style type="text/css">
+html { overflow-x:hidden; }
+table.hovertable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+}
+table.hovertable th {
+	background-color:#c3dde0;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+table.hovertable tr {
+	background-color:#d4e3e5;
+}
+table.hovertable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+.STYLE3 {font-size: medium}
+</style>
+
+<body>
+
+<div align="center" style="width:100%">
+<table class="hovertable" width="100%">
+
+<tr>
+<td>
+<div>
+  <div style = "width:100%;">
+  <h4 align="center" class="STYLE3">{{error}}</h4>
+<br/>
+</div>
+
+</div>
+</td>
+</tr>
+
+</table>
+</div>
+
+<div align="center" style=" width:100%">
+<table class="hovertable" width="100%">
+<tr>
+
+<th>
+<h3 align="center">
+菜品编码</h3></th>
+
+<th>
+<h3 align="center">
+菜品名称</h3></th>
+
+<th>
+<h3 align="center">
+菜品价格</h3></th>
+
+<th>
+<h3 align="center">
+菜品描述</h3></th>
+
+<th>
+<h3 align="center">
+修改</h3></th>
+</tr>
+
+{% for item in dishes %}
+<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+<form method="post" action="/adddish">
+<td align="center"><input style="background-color:#d4e3e5;" value="{{item[0]}}" id="dish_id" name="dish_id" type="text" size="20" /></td>
+
+<td align="center">
+<input style="background-color:#d4e3e5;" value={{item[1]}} id="dish_name" name="dish_name" type="text" size="20"/></td>
+
+<td align="center">
+<input style="background-color:#d4e3e5;" value={{item[2]}} id="dish_price" name="dish_price" type="text" size="20"/></td>
+
+<td align="center">
+<input style="background-color:#d4e3e5;" value={{item[3]}} id="dish_description" name="dish_description" type="text" size="20"/></td>
+
+<td align="center">
+<input style="background-color:#d4e3e5;" value="修改" type="submit" /></td>
+</form>
+</tr>
+{% endfor %}
+</table>
+</div>
+<div style="bottom:0px; right:center;">
+  <table class="hovertable" width="100%" height="10%" border="0" align="center">
+    <tr>
+      <form method="post" action="/adddish">
+	  	<td width="23%" align="center"><br/>
+		  &nbsp;&nbsp;<strong>菜品编号:</strong>
+          <input name="dish_id1" type="text" id="dish_id1" size="20"&nbsp;&nbsp; />
+          &nbsp;<br/>
+          <br/>
+        </td>
+        <td width="23%" align="center"><br/>
+          &nbsp;&nbsp;<strong>菜品名称:</strong>
+          <input name="dish_name1" type="text" id="dish_name1" size="20"&nbsp;&nbsp; />
+          &nbsp;<br/>
+          <br/>
+        </td>
+        <td width="23%" align="center"><br/>
+          &nbsp;&nbsp;<strong>菜品价格:</strong>
+          <input name="dish_price1" type="text" id="dish_price1" size="20"&nbsp;&nbsp; />
+          &nbsp;<br/>
+          <br/>
+        </td>
+		<td width="23%" align="center"><br/>
+          &nbsp;&nbsp;<strong>菜品描述:</strong>
+          <input name="dish_description1" type="text" id="dish_description1" size="20"&nbsp;&nbsp; />
+          &nbsp;<br/>
+          <br/>
+        </td>
+        <td width="6%" align="center"><div align="left"> <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <input style="background-color:#d4e3e5;" type="submit" id="orderdishbtn" value=添加 /> 
+          <br/>
+          <br/>
+		  <br/>
+        </div></td>
+      </form>
+    </tr>
+  </table>
+</div> 
+
+</body>
+</html>

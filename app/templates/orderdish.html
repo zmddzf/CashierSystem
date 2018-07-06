@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>点菜</title></head>
+<style type="text/css">
+html { overflow-x:hidden; }
+table.hovertable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+}
+table.hovertable th {
+	background-color:#c3dde0;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+table.hovertable tr {
+	background-color:#d4e3e5;
+}
+table.hovertable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+</style>
+
+
+<body>
+<div align="center" style="height:20%">
+<table class="hovertable" width="100%" height="106" border="1" align="center">
+<tr>
+<td>
+<form method="post" action="/orderdish">
+<div  align="right" style="float:left; width:35%;">
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong>桌号:</strong><input name="desk_id" type="text" id="desk_id" size="30" value="{{desk_id}}"&nbsp;&nbsp;>
+&nbsp;&nbsp;<br/><br/>
+</div>
+<div align="left" style="float:left; width:35%;">
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong>订单号:</strong><input name="order_id" type="text" id="order_id" value="{{order_id}}" size="30"><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</div>
+<div align="center" style="float:left; width:30%;">
+<br/><button style="float:left" type="submit" id="createorder"><div align="left"><strong>创建</strong></div>
+</button>{{success}}
+<br/></div>
+</form>
+
+</td>
+</tr>
+<tr>
+<td>
+<div align="center">
+
+<div align="center" style="float:left; width:50%;">
+<h1 align="center">
+菜单
+</h1>
+</div>
+
+<div align="center" style="float:left; width:50%;">
+<h1 align="center">
+订单
+</h1>
+</div>
+
+</div>
+
+</td>
+</tr>
+</table>
+</div>
+
+
+<div align="center" style="height:60%">
+<div style="float:left; width:50%";>
+<table class="hovertable" width="100%" border="1">
+<tbody>
+<tr>
+
+<th align="center">
+<h2 align="center">
+编号
+</h2>
+</th>
+
+<th align="center">
+<h2 align="center">
+菜名
+</h2>
+</th>
+
+<th align="center">
+<h2 align="center">
+单价
+</h2>
+</th>
+
+<th align="center">
+<h2 align="center">
+描述
+</h2>
+</th>
+
+</tr>
+
+{% for dish in dishes %}
+<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+<td align="center">
+{{ dish[0] }}
+</td>
+<td align="center">
+{{ dish[1] }}
+</td>
+<td align="center">
+{{ dish[2] }}
+</td>
+<td align="center">
+{{ dish[3] }}
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+
+<div style="float:left; width:50%;">
+<table class="hovertable" width="100%" border="1">
+<tbody>
+<tr>
+<th align="center">
+<h2 align="center">
+订单编号
+</h2>
+</th>
+<th align="center">
+<h2 align="center">
+菜品编号
+</h2>
+</th>
+<th align="center">
+<h2 align="center">
+数量
+</h2>
+</th>
+</tr>
+
+{% for order in orderinfo %}
+<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+<td align="center">
+{{ order[0] }}
+</td>
+<td align="center">
+{{ order[1] }}
+</td>
+<td align="center">
+{{ order[2] }}
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+
+<div style="bottom:0px; right:center;">
+  <table class="hovertable" width="100%" height="10%" border="0" align="center">
+    <tr>
+      <form method="post" action="/orderdish">
+        <td width="40%" align="right"><br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;<strong>菜品编号:</strong>
+          <input name="dish_id" type="text" id="dish_id" size="30"&nbsp;&nbsp; />
+          &nbsp;<br/>
+          <br/>
+        </td>
+        <td width="40%" align="center"><br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;<strong>数量:</strong>
+          <input name="quantity" type="text" id="quantity" size="30"&nbsp;&nbsp; />
+          &nbsp;<br/>
+          <br/>
+        </td>
+        <td width="20%" align="center"><div align="left"> <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="submit" id="orderdishbtn"> <strong>点菜</strong></button>
+          <br/>
+          <br/>
+        </div></td>
+      </form>
+    </tr>
+  </table>
+</div>
+
+
+</body>
+</html>

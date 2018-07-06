@@ -1,0 +1,88 @@
+<style type="text/css">
+<!--
+.STYLE1 {
+	font-size: 36px;
+	font-family: "新宋体";
+	font-weight: bold;
+	color: #FFFFFF;
+}
+.STYLE4 {font-size: 10px}
+body {
+	background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530558187594&di=8363efaf2bdc927eb0790b8a9fde1d86&imgtype=0&src=http%3A%2F%2Fimg02.tooopen.com%2Fimages%2F20160622%2Ftooopen_sy_166076454549.jpg);
+	background-repeat: repeat;
+}
+.STYLE5 {color: #FFFFFF}
+.STYLE6 {font-size: large}
+.top{
+position: fixed;
+left: 0px;
+bottom: 0px;
+width: 100%;
+height: 100px;
+z-index: 1;
+top:0:
+}
+.footer{
+position: fixed;
+left: 0px;
+bottom: 0px;
+width: 100%;
+height: 100px;
+z-index: 9999;
+
+}
+-->
+</style>
+{% extends "base.html" %}
+{% block title %}
+{% endblock %}
+{% block body %}
+<!DOCTYPE html>
+<br/>
+<br/>
+<br/>
+<html lang="zh-CN">
+<table align="center" border="1" style="width:100%; height:50%;">
+<tr>
+<th align="center">
+<p class="STYLE1">
+        登录界面	</p>
+	<div align="right"> 
+	  <span class="STYLE4"></span>
+    </div>
+</th>
+</tr>
+<tr>
+<td>
+    <form  method="post" action="/login">
+        <div align="center" class="STYLE5 STYLE6">
+		  <br/>账号:<input name="username" type="text" class="STYLE6" id="username"><br/><br/>
+   		  <br/>密码:<input name="password" type="password" class="STYLE6" id="password"><br/><br/>
+		</div>
+        <div align="center">
+		<button type="submit" id="loginBtn">
+        <div align="center">登录</div>
+        </button>
+	  </div>
+	</form>
+	<div align="center">
+    {% if error %}
+        <label style="color:#FFFFFF">{{ error }}</label>
+    {% endif %}
+	</div>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+<div class="footer" style="width:100%;">
+<table width="100%" height="100" border="0" cellspacing="0" cellpadding="2" bgcolor="#CCCCCC">
+  <tr>
+    <td width="99%" bgcolor="#000000"><div align="center"><span class="STYLE5">©2018 CREATED BY DZF </span></div></td>
+    <td width="1%" align="right" bgcolor="#000000">&nbsp;</td>
+  </tr>
+</table>
+<div>
+<p>&nbsp;</p>
+<p>{% endblock %}</p>
