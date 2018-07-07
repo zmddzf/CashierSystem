@@ -37,10 +37,10 @@ z-index: 9999;
 
   <tr>
 
-    <td width="16%" bgcolor="#000000"><a href="#"><img src="../static/logo.jpg" name="Logo" width="96" height="88" border="0" style="background-color: #CCCC99"></a></td>
+    <td width="16%" bgcolor="#000000"><a href="#"><img src={{ url_for('static', filename='logo.jpg') }} name="Logo" width="96" height="88" border="0" style="background-color: #CCCC99"></a></td>
     <td width="71%" bgcolor="#000000"><h1 align="center" class="STYLE1" >山灰先生收银管理系统</h1></td>
 
-    <td width="13%" align="right" bgcolor="#000000"><a href="/logout" class="STYLE2">注销</a> <a href="/register" class="STYLE2">添加管理员</a>&nbsp;</td>
+    <td width="13%" align="right" bgcolor="#000000"><a href="/web/logout" class="STYLE2">注销</a> <a href="/web/register" class="STYLE2">添加管理员</a>&nbsp;</td>
   </tr>
 </table>
 
@@ -61,7 +61,7 @@ z-index: 9999;
 </td>
 <td width="100%" bordercolor="#FFFFFF" bgcolor="#666666">
 <div align="center">
-<button onclick="iframe.location='/orderdish'" class="STYLE8">点菜</button>
+  <button onclick="iframe.location='/web/orderdish'" class="STYLE8">点菜</button>
 </div>
 </td>
 </tr>
@@ -69,7 +69,7 @@ z-index: 9999;
 </td>
 <td width="100%" bordercolor="#FFFFFF" bgcolor="#666666">
 <div align="center">
-<button onclick="iframe.location='/showorderinfo'" class="STYLE8">查看已点菜</button>
+  <button onclick="iframe.location='/web/showorderinfo'" class="STYLE8">查看已点菜</button>
 </div>
 </td>
 </tr>
@@ -81,14 +81,14 @@ z-index: 9999;
 <tr bgcolor="#CCCCCC"><td bordercolor="#FFFFFF" bgcolor="#666666">&nbsp; 
 </td>
 <td width="100%" bordercolor="#FFFFFF" bgcolor="#666666">
-<div align="center"><button onclick="iframe.location='/checkout'" class="STYLE8">结算</button></div>
+  <div align="center"><button onclick="iframe.location='/web/checkout'" class="STYLE8">结算</button></div>
 </td>
 </tr>
 <tr bgcolor="#CCCCCC">
 <td bordercolor="#FFFFFF" bgcolor="#666666">&nbsp;
 </td>
 <td width="100%" bordercolor="#FFFFFF" bgcolor="#666666">
-<div align="center"><button onclick="iframe.location='/showorders'" class="STYLE8">查看账单信息</button></div>
+  <div align="center"><button onclick="iframe.location='/web/showorders'" class="STYLE8">查看账单信息</button></div>
 </td>
 </tr>
 <tr bgcolor="#333333">
@@ -100,14 +100,14 @@ z-index: 9999;
 <td bordercolor="#FFFFFF" bgcolor="#666666">&nbsp; 
 </td>
 <td width="100%" bordercolor="#FFFFFF" bgcolor="#666666">
-<div align="center"><button onclick="iframe.location='/adddish'" class="STYLE8">变动菜品</button></div>
+  <div align="center"><button onclick="iframe.location='/web/adddish'" class="STYLE8">变动菜品</button></div>
 </td>
 </tr>
 <tr bgcolor="#CCCCCC">
 <td bordercolor="#FFFFFF" bgcolor="#666666">&nbsp;
 </td>
 <td width="100%" bordercolor="#FFFFFF" bgcolor="#666666">
-<div align="center"><button onclick="iframe.location='/adddesk'" class="STYLE8">变动桌位</button></div>
+  <div align="center"><button onclick="iframe.location='/web/adddesk'" class="STYLE8">变动桌位</button></div>
 </td>
 </tr>
 </table>

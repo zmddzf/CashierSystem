@@ -10,7 +10,18 @@ from app import app
 from app.model import model, user, order, orderinfo, dish, desk
 from flask import render_template, redirect,url_for
 from flask import request, session, g
+from flask_session import Session
+import os
 import re
+
+
+
+@app.before_request
+def before_login():
+    if request.path != '/login':
+        if not 'username' in session:
+            return redirect(url_for('login'))
+
 
 
 @app.route('/login', methods = ['GET', 'POST']) 
@@ -20,13 +31,14 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        session.permanent = False
+        session['username'] = username
         db = model('dzf', '123456', '39.108.102.21')
         usr = user(db)
         if usr.check_username(username):
             if usr.check_password(username, password):
-                session['username'] = username
                 db.close()
-                return redirect('/workshop')
+                return redirect(url_for('workshope'))
             else:
                 db.close()
                 return render_template('login.html', error = '请输入正确的密码！')
@@ -37,11 +49,11 @@ def login():
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
     if request.method == 'GET':
-        if 'username' in session:
+        if session.get('username'):
             return render_template('register.html', back = '返回')
         else:
             return "PLEASE LOGIN!"
-    if request.method == 'POST' and 'username' in session:
+    if request.method == 'POST':
         username = request.form['username']
         password1 = request.form['password1']
         password2 = request.form['password2']
@@ -64,23 +76,17 @@ def logout():
     else:
         return render_template('login.html')
 
-@app.route('/workshop')
+@app.route('/workshop', methods = ['GET', 'POST'])
 def workshope():
-    if 'username' in session:
-        return render_template('base2.html')
-    else:
-        return 'PLEASE LOGIN!'
+    return render_template('base2.html')
 
 @app.route('/orderdish', methods = ['GET', 'POST'])
 def orderdish():
     if request.method == 'GET':
-        if 'username' in session:
-            db = model('dzf', '123456', '39.108.102.21')
-            dish_t = dish(db)
-            dishes = dish_t.get_dishes()
-            return render_template('orderdish.html', dishes = dishes)
-        else:
-            return 'PLEASE LOGIN!'
+        db = model('dzf', '123456', '39.108.102.21')
+        dish_t = dish(db)
+        dishes = dish_t.get_dishes()
+        return render_template('orderdish.html', dishes = dishes)
     if request.method == 'POST':
         db = model('dzf', '123456', '39.108.102.21')
         order_t = order(db)
@@ -88,25 +94,23 @@ def orderdish():
         dish_t = dish(db)
         global order_id
         global desk_id
-        if 'username' in session:
-            print(('desk_id' in request.form) and ('order_id' in request.form))
-            if ('desk_id' in request.form) and ('order_id' in request.form):
-                desk_id = request.form['desk_id']
-                order_id = request.form['order_id']
-                order_t.checkin_order(order_id, desk_id)
-                dishes = dish_t.get_dishes()
-                success = '创建成功！'
-                return render_template('orderdish.html',success = success, dishes = dishes, desk_id = desk_id, order_id = order_id)
-            else:
-                dish_id = request.form['dish_id']
-                quantity = request.form['quantity']
-                dishes = dish_t.get_dishes()
-                if orderinfo_t.create_info(order_id, dish_id, quantity):
-                    print('problem\n\n\n\n')
-                order_info = orderinfo_t.get_info(order_id)
-                return render_template('orderdish.html',dishes = dishes, orderinfo = order_info, desk_id = desk_id, order_id = order_id)
+        print(('desk_id' in request.form) and ('order_id' in request.form))
+        if ('desk_id' in request.form) and ('order_id' in request.form):
+            print(request.form)
+            desk_id = request.form['desk_id']
+            order_id = request.form['order_id']
+            order_t.checkin_order(order_id, desk_id)
+            dishes = dish_t.get_dishes()
+            success = '创建成功！'
+            return render_template('orderdish.html',success = success, dishes = dishes, desk_id = desk_id, order_id = order_id)
         else:
-            return 'PLEASE LOGIN'
+            dish_id = request.form['dish_id']
+            quantity = request.form['quantity']
+            dishes = dish_t.get_dishes()
+            if orderinfo_t.create_info(order_id, dish_id, quantity):
+                print('problem\n\n\n\n')
+            order_info = orderinfo_t.get_info(order_id)
+            return render_template('orderdish.html',dishes = dishes, orderinfo = order_info, desk_id = desk_id, order_id = order_id)
         
 @app.route('/showorderinfo', methods = ['POST', 'GET'])
 def showorderinfo():

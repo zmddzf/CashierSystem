@@ -46,7 +46,7 @@ table.hovertable td {
 <table class="hovertable" width="100%">
 <tr align="left"> 
 <th>
-<a href="/showorders">返回上级</a>
+  <a href="/web/showorders">返回上级</a>
 </th>
 </tr>
 </table>
@@ -89,7 +89,7 @@ table.hovertable td {
 
 {% for item in orders %}
 <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
-<form method="post" action="/showorders">
+  <form method="post" action="/web/showorders">
 <td align="center">
 <input style="background-color:#d4e3e5;" value="{{item[0]}}" id="order_id" name="order_id" type="submit" size="20" /></td>
 
@@ -123,7 +123,7 @@ table.hovertable td {
 
 {% for item in order_s %}
 <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
-<form method="post" action="/showorders">
+  <form method="post" action="/web/showorders">
 <td align="center">
 <input style="background-color:#d4e3e5;" value="{{item[0]}}" id="order_id" name="order_id" type="submit" size="20" /></td>
 

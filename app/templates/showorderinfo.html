@@ -47,7 +47,7 @@ table.hovertable td {
 
 <tr>
 <td>
-<form method="post" action="/showorderinfo">
+  <form method="post" action="/web/showorderinfo">
 <div>
 
 <div style="float:left; width:60%;">
@@ -108,7 +108,7 @@ table.hovertable td {
 
 {% for item in info %}
 <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
-<form method="post" action="/showorderinfo">
+  <form method="post" action="/web/showorderinfo">
 <td align="center">
 <input style="background-color:#d4e3e5;" value="{{item[0]}}" id="order_id" name="order_id" type="text" size="20" />
 </td>
@@ -139,7 +139,7 @@ table.hovertable td {
 <div style="bottom:0px; right:center;">
   <table class="hovertable" width="100%" height="10%" border="0" align="center">
     <tr>
-      <form method="post" action="/showorderinfo">
+      <form method="post" action="/web/showorderinfo">
 	  	<td width="30%" align="center"><br/>
 		  &nbsp;&nbsp;<strong>订单编号:</strong>
           <input name="order_id1" type="text" id="order_id1" size="20"&nbsp;&nbsp; />
